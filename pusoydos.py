@@ -160,7 +160,7 @@ class Hand:
             return max(ThisHandValue) + 500
             
     def isStraight(self):
-        self.sortByPokerValue()
+        self.sortByPokerValue(self)
         i=0
         if len(self.Hand)==5:
             ThisHandValue = [self.Hand[0].PokerValue()]
@@ -249,7 +249,6 @@ class Hand:
         self.Hand=donesort
     
     def sortByPokerValue(self, highAce=False):
-
         for x in self.Hand:
             if x.Rank==2:
                 highAce=False
@@ -358,13 +357,33 @@ print("-----")
 D = Deck()
 D.Shuffle()
 H = [D.Deal(), D.Deal(), D.Deal(), D.Deal()]
-for h in H:
-    print(h.Display())
+print("Your Cards: " + H[3].Display())
 
 
 print("-----")
 
 C = raw_input()
 H2 = H[3].GetCards(C)
-print(H2.isStraight())
+if H2.isSingles() < 1:
+    if H2.isMultiSuitHand < 100:
+        if H2.isFourOfAKind < 300:
+            if H2.isStraight < 400:
+                if H2.isFlush() < 500:
+                    if H2.isFullHouse < 600:
+                        if H2.isStraightFlush < 800:
+                            print("Try Again!")
+                        else:
+                            print("Straight Flush dealt: " + C)
+                    else:
+                        print("Full House dealt: " + C)
+                else:
+                    print("Flush dealt: " + C)
+            else:
+                print("Straight Hand dealt: " + C)
+        else:
+            print("Four-of-a-Kind dealt: " + C)
+    else:
+        print("Multi-suit Hand dealt: " + C)
+else:
+    print("Singles dealt: " + C)
 
