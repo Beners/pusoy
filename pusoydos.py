@@ -353,10 +353,15 @@ class Deck:
 
         return None
 
+
 print("-----")
 D = Deck()
 D.Shuffle()
 H = [D.Deal(), D.Deal(), D.Deal(), D.Deal()]
+print("Opponent 1 Cards: " + H[0].Display())
+print("Opponent 2 Cards: " + H[1].Display())
+print("Opponent 3 Cards: " + H[2].Display())
+print("-----")
 print("Your Cards: " + H[3].Display())
 
 
